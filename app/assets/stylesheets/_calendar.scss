@@ -1,0 +1,20 @@
+#calendar {
+  margin-right: 20px;
+  text-align: center;
+}
+
+.fc-view-container {
+  background-color: #666;
+}
+
+.fc-day {
+  cursor: pointer;
+}
+
+.fc-day:hover {
+  background-color: rgb(255, 172, 230)
+}
+
+.fc-today {
+  color: #333;
+}

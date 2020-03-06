@@ -1,0 +1,52 @@
+.main-wrapper
+  .new-top
+    - if controller.controller_name == "schedules" && controller.action_name == "new"
+      スケジュール登録
+    - elsif controller.controller_name == "schedules" && controller.action_name == "edit"
+      スケジュール編集
+  .new-content
+    = form_with(model: @schedule, local: true) do |f|
+      - if controller.controller_name == "schedules" && controller.action_name == "new"
+        .new-date
+          %p ▼作業日
+          = f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: "form-control__middle"
+      - elsif controller.controller_name == "schedules" && controller.action_name == "edit"
+        .new-date
+          %p ▼作業日
+          = f.date_field :date, value: @schedule.date, class: "form-control__middle"
+      .new-time__title
+        %p ▼作業予定時刻
+        .new-time
+          - if controller.controller_name == "schedules" && controller.action_name == "new"
+            .new-starttime
+              = f.text_field :starttime, class: 'form-control__short', placeholder: "例)09:00"
+            %p  〜 
+            .new-finishtime
+              = f.text_field :finishtime, class: 'form-control__short', placeholder: "例)10:00"            
+          - elsif controller.controller_name == "schedules" && controller.action_name == "edit"
+            .new-starttime
+              = f.text_field :starttime, value: @schedule.starttime.strftime("%H:%M"), class: 'form-control__short', placeholder: "例)09:00"
+            %p  〜 
+            .new-finishtime
+              = f.text_field :finishtime, value: @schedule.finishtime.strftime("%H:%M"), class: 'form-control__short', placeholder: "例)10:00"
+      .new-tag.lineheight10
+        %p ▼カテゴリー
+        = f.collection_radio_buttons(:tag_id, Tag.all, :id, :name) do |t|
+          = t.label do
+            = t.radio_button
+            = t.text
+      .new-title.lineheight10
+        %p ▼タイトル
+        = f.text_field :title, class: 'form-control', placeholder: "タイトルを入力"
+      .new-schedule.lineheight10
+        %p ▼スケジュール内容
+        = f.text_area :description, class: 'form-control__large', placeholder: "作業内容等を入力"
+      - if controller.controller_name == "schedules" && controller.action_name == "new"
+        .new-submit
+          = f.submit '登録', class: 'btn-post'
+      - elsif controller.controller_name == "schedules" && controller.action_name == "edit"
+        .new-submit
+          = f.submit '編集', class: 'btn-post'
+          = link_to("/schedules/#{@schedule.id}", method: :delete) do
+            .btn-delete.confirm
+              削除

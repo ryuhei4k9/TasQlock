@@ -1,0 +1,29 @@
+.memo-content {
+  height: 120px;
+  width: auto;
+  margin: 10px;
+  border-radius: 10px;;
+}
+
+.memo-head {
+  display: flex;
+  justify-content: space-between;
+  height:20px;
+  font-size: 12px;
+  line-height: 20px;
+  background-color: rgb(253, 232, 39);
+}
+.memo-title {
+  margin-left: 5px;
+}
+
+.memo-plus {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.memo-description {
+  height: 100px;
+  font-size: 16px;
+  background-color: #FFF;
+}

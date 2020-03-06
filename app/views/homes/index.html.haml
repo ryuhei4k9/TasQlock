@@ -1,0 +1,92 @@
+.top
+  = image_tag "/images/時計.jpeg"
+  .top__contents
+    .top__left
+      .top__left--title
+        make a better
+        %br
+        environment and time
+      .top__left--description
+      本サイトは1日のスケジュールをタイマーと共に管理し、学習や業務の効率化を図る事を趣旨としたサイトです。
+      %br
+      ユーザ登録を行うことでスケジューリング機能をご利用いただけます。
+      タイマーだけをご利用になりたい方は下記リンクよりどうぞ。
+    .top__right
+      -# ログイン画面
+      .login
+        .login-top
+          ログイン
+        .login__contents
+          = form_for :session, url: login_path do |f|
+            -# ユーザアカウント
+            .form-group
+              = f.label :accountname, class: "form-title"
+              %br
+              = f.text_field :name, class: 'form-control'
+              %br          
+            -# メールアドレス
+            .form-group
+              = f.label :email, class: "form-title"
+              %br
+              = f.email_field :email, class: 'form-control'
+              %br
+              -# パスワード
+            .form-group
+              = f.label :password, class: "form-title"
+              %br
+              = f.password_field :password, class: 'form-control'
+              %br
+            -# ログイン
+            .form-submit
+              = f.submit "Login", class: "btn-submit"
+
+        .login__sns
+          = image_tag "/images/btn_google_signin_light_focus_web.png",{class: "google"}
+          = image_tag "/images/btn_facebook_signin.png", {class: "facebook"}
+        .today
+          .today-main
+            今日から頑張りたいあなたは
+          .today-sub
+            こちら
+      -# 新規登録画面
+      .signup
+        .signup-top
+          新規登録
+        .signup__contents
+          = form_with(model: @user, url: users_path, local: true) do |f|
+            -# ユーザアカウント
+            .form-group
+              = f.label :accountname, class: "form-title"
+              %br
+              = f.text_field :name, class: 'form-control'
+              %br          
+            -# メールアドレス
+            .form-group
+              = f.label :email, class: "form-title"
+              %br
+              = f.email_field :email, class: 'form-control'
+              %br
+              -# パスワード
+            .form-group
+              = f.label :password, class: "form-title"
+              %br
+              = f.password_field :password, class: 'form-control'
+              %br
+              -# パスワード確認
+            .form-group
+              = f.label :password_confirmaion, class: "form-title"
+              %br
+              = f.password_field :password_confirmation, class: 'form-control'
+              %br
+            -# ログイン
+            .form-submit
+              = f.submit "Signup", class: "btn-submit"
+
+        .signup__sns
+          = image_tag "/images/btn_google_signin_light_focus_web.png",{class: "google"}
+          = image_tag "/images/btn_facebook_signup.png", {class: "facebook"}
+        .already
+          .already-main
+            登録済みで頑張っているあなたは
+          .already-sub
+            こちら

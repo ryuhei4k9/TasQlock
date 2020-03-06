@@ -1,0 +1,67 @@
+.leftbar {
+  position: relative;
+  color: #DDD;
+}
+
+.left-top {
+  padding-top: 20px;
+  margin: 0 0 20px 20px;
+  height: 100px;
+  font-size: 16px;
+}
+
+.left-time {
+  font-size: 32px;
+  font-weight: bold;
+  margin-left: 40px;
+  color: #FFF;
+}
+
+.left-schedule {
+  margin: 0 0 20px 20px;
+}
+
+.sche-title {
+  display: inline-flex;
+}
+
+.fa-book {
+  margin: 3px 5px 0 5px;
+}
+
+#today {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.sche-list {
+  padding-left: 40px;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.active {
+  width: 200px;
+  background-color: rgb(100, 100, 100);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.sche-list:not(.active):hover {
+  width: 200px;
+  background-color: rgb(50, 50, 50);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.left-calendar {
+  color: #FFF;
+  height: 300px;
+  margin: 0 0 20px 20px;
+}
+
+.left-logout {
+  position: absolute;
+  bottom: 0px;
+  margin: 0 0 20px 20px;
+}

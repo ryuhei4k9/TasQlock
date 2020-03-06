@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sche-left {
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  width: 300px;
+  background-color: rgb(34, 34, 34);
+  overflow: auto;
+}
+
+.sche-main {
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  width: calc(100vw - 20% - 300px);
+  background-color: #EEE;
+  overflow: auto;
+}
+
+.main-wrapper {
+  margin: 15px;
+  height: calc(100% - 30px);
+  width: calc(100% - 30px);
+  border-radius: 10px;
+}
+
+.sche-memo {
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  width: 20%;
+  background-color: rgb(34, 34, 34);
+  overflow: auto;
+}

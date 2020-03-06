@@ -1,0 +1,42 @@
+.leftbar
+  .left-top
+    = icon("fas", "stopwatch")
+    Webタイマー
+    -# ここにWebタイマーを掲載する
+    .left-time
+      #timer
+        00:25:00
+      .button
+        = button_tag type:"button", class:"button__start button-time", id:"start" do
+          = icon("fas", "play")
+        = button_tag type:"button", class:"button__reset button-time", id:"reset", disabled:"disabled" do
+          = icon("fas", "undo-alt")
+        = button_tag type:"button", class:"button__rest button-time", id:"rest" do
+          = icon("fas", "mug-hot")
+      .audio
+  .left-schedule
+    %ul
+      .sche-title
+        = icon("fas", "book")
+        スケジュール
+        -# 現在利用しているページのタブにactiveクラスを付与し、薄い白色を背景色に指定する。
+      - if controller.controller_name == "schedules" && controller.action_name == "today"
+        %li.sche-list.active
+          = link_to "本日のスケジュール確認", today_schedules_path
+        %li.sche-list
+          = link_to "新規スケジュール登録", new_schedule_path
+      - elsif controller.controller_name == "schedules" && controller.action_name == "new"
+        %li.sche-list
+          = link_to "本日のスケジュール確認", today_schedules_path
+        %li.sche-list.active
+          = link_to "新規スケジュール登録", new_schedule_path
+      - else
+        %li.sche-list
+          = link_to "本日のスケジュール確認", today_schedules_path
+        %li.sche-list
+          = link_to "新規スケジュール登録", new_schedule_path
+  .left-calendar
+    = icon("far", "calendar-alt")
+    カレンダー
+    #calendar
+  .left-logout

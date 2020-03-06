@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:ja] = "%Y年%m月%d日"
