@@ -1,8 +1,20 @@
+.memo-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.memo-contents {
+  height: calc(100vh - 100px);
+  overflow: scroll;
+  padding-bottom: 40px;
+}
+
 .memo-content {
-  height: 120px;
   width: auto;
   margin: 10px;
-  border-radius: 10px;;
 }
 
 .memo-head {
@@ -17,13 +29,50 @@
   margin-left: 5px;
 }
 
-.memo-plus {
+.memo-cross {
   margin-right: 5px;
   cursor: pointer;
 }
 
 .memo-description {
-  height: 100px;
+  height: 100%;
   font-size: 16px;
+  padding-left: 5px;
   background-color: #FFF;
+}
+
+.memo-bottom {
+  height: 40px;
+  width: 100%;
+  background-color: grey;
+  position: absolute;
+  bottom: 0px;
+}
+
+.memo-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.memo-form {
+  margin: auto 50px auto 10px;
+}
+
+.form-control-memo {
+  width: calc(100% + 40px);
+}
+
+.btn-memo {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #0066FF;
+  border-radius: 3px;
+  text-align: center;
+  margin: auto 5px;
+  cursor: pointer;
 }

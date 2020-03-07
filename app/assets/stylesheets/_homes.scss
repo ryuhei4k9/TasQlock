@@ -3,16 +3,21 @@ body {
   height:100%
 }
 
+header {
+  width: 100%;
+  position: sticky;
+  z-index: 2;
+}
+
 .header {
   height:60px;
   width:100%;
   display: flex;
-  margin-bottom: 60px;
   background-color: #FFF;
   border-bottom: solid 2px #005FFF;
   opacity: 0.9;
   z-index: 1;
-  position: fixed;
+  position: sticky;
   &__left {
     width: 20%;
     color: #005FFF;

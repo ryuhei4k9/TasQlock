@@ -46,20 +46,24 @@ $(function(){
       }
     })
   };
+
   // カレンダーを非表示させる関数を記述(今の所使用予定なし)　
-  function clearCalendar() {
-    $('#calendar').html('');
-  };
+  // function clearCalendar() {
+  //   $('#calendar').html('');
+  // };
+
   // ログインし、スケジュールページに飛んだらカレンダーを表示
   if (window.location.href.match(/schedules/)){
     eventCalendar();
   }
+
   // カレンダーをクリックした特定の日付に背景色のcssを付与する関数
   function calendarColor() {
     // _calendar_bar.html.hamlより、架空のinputから日付情報の値を取得
     caledate = $('.cale_date').val();
     $(`.fc-day[data-date=${caledate}]`).css('background','rgb(255, 172, 230)')
   };
+  
   // カレンダーをクリックした時に背景色のcssを付与する関数を実行
   if(window.location.href.match(/\/schedules\/calendar/)){
     // 選択した日が当月であった場合そのまま色付けを発火

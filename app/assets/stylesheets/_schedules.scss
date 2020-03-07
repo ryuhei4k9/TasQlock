@@ -6,17 +6,70 @@
 
 .schedule-content {
   height: 100%;
+  display: flex;
+  box-sizing: border-box;
+  margin:10px;
+  background-color: rgb(34, 34, 34);
+  &__left {
+    width: 91%;
+  }
+  &__right{
+    width: 9%;
+    margin: auto;
+  }
+}
+
+.schedule-content-done {
+  position: relative;
+  height: 100%;
+  display: flex;
   box-sizing: border-box;
   margin:10px;
   background-color: rgb(34, 34, 34);
 }
 
-.schedule-content:hover {
+.schedule-content-done::after {
+  content: '';
+  background-color: rgba(0,0,0,.4);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.schedule-content-done:hover {
   cursor: pointer;
   outline: 1px solid blue;
 }
 
-.right-schedule:hover {
+.schedule-content-calendar {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  margin:10px;
+  background-color: rgb(34, 34, 34);
+}
+
+.schedule-content-calendar-done {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  margin:10px;
+  background-color: rgb(34, 34, 34);
+}
+
+.schedule-content-calendar-done::after {
+  content: '';
+  background-color: rgba(0,0,0,.4);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.schedule-content__left:hover {
   cursor: pointer;
   outline: 1px solid blue;
 }
@@ -103,9 +156,39 @@
   text-align: left;
   padding-left: 10px;
   background-color: #FFF;
-  height: 100%;
   font-size: 18px;
   color: black;
+}
+
+.button_to .btn-finish {
+  margin: 0 auto;
+  padding: 3px 10px;
+  background-color: grey;
+  border-radius: 15px;
+  text-align: center;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: bold;
+  outline: none;
+}
+
+.button_to .btn-done {
+  margin: 0 auto;
+  padding: 3px 10px;
+  background-color: #0066FF;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: bold;
+  outline: none;
+}
+
+.btn-done:active {
+  outline:0;
+  top: 2px;
+  border-bottom: 0px;
 }
 
 #cale {

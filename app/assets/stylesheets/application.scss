@@ -27,3 +27,17 @@
 @import './calendar';
 @import './color';
 @import './timer';
+
+// フラッシュメッセージ
+.notifications {
+  color: #FFF;
+  text-align: center;  
+
+  .notice {
+    background-color: #005FFF;
+  }
+
+  .alert {
+    background-color: #FF4F02;
+  }
+}

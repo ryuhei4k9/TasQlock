@@ -2,7 +2,6 @@ class SchedulesController < ApplicationController
   before_action :login_required
 
   def index
-    @schedule = Schedule.all
   end
 
   def new
@@ -12,8 +11,15 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    Schedule.create(schedule_params)
-    redirect_to new_schedule_path
+    schedule = Schedule.new(schedule_params)
+      if schedule.valid?
+        schedule.save
+        flash[:notice] = "スケジュールを登録しました"
+        redirect_to new_schedule_path
+      else
+        flash[:alert] = "必須項目を入力して下さい"
+        redirect_to new_schedule_path
+      end
   end
 
   def show
@@ -28,18 +34,27 @@ class SchedulesController < ApplicationController
 
   def update
     schedule = Schedule.find(params[:id])
-    schedule.update(schedule_params)
-    redirect_to today_schedules_path
+      if schedule.valid?
+        schedule.update(schedule_params)
+        redirect_to today_schedules_path
+        flash[:notice] = "スケジュールを編集しました"
+      else
+        redirect_to edit_schedule_path
+        flash[:alert] = "必須項目を入力して下さい"
+      end
   end
 
   def destroy
     schedule = Schedule.find(params[:id])
     schedule.destroy
+    flash[:notice] = "スケジュールを削除しました"
     redirect_to today_schedules_path
   end
 
   def today
     @schedules = Schedule.where("date >= ?", Time.zone.now.beginning_of_day).where(user_id: current_user.id).order(starttime: "asc")
+    @memo = Memo.new
+    @memos = Memo.where("date >= ?", Time.zone.now.beginning_of_day).where(user_id: current_user.id).order(created_at: "asc")
   end
 
   def calendar
@@ -47,12 +62,19 @@ class SchedulesController < ApplicationController
     @month = @tmp[5..6]
     @day = @tmp[8..9]
     @cale = Schedule.where(date: @tmp).where(user_id: current_user.id).order(starttime: "asc")
+    @memos = Memo.where(date: @tmp).where(user_id: current_user.id).order(created_at: "asc")
+  end
+
+  def done
+    schedule = Schedule.find(params[:id])
+    schedule.update(done: 1)
+    redirect_to today_schedules_path
+    flash[:notice] = "スケジュールが完了しました"
   end
 
   private
     def schedule_params
-      params.require(:schedule).permit(:date, :starttime, :finishtime, :tag_id, :title, :description).merge(user_id: current_user.id)
-      # .permit(user_id: current_user.id)
+      params.require(:schedule).permit(:date, :starttime, :finishtime, :done, :tag_id, :title, :description).merge(user_id: current_user.id)
     end
 
 end

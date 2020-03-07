@@ -8,17 +8,21 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
   %body
-    .header
-      .header__left
-        = link_to "TasQlock", today_schedules_path, class: "blue"
-      .header__middle
-        #date
-      .header__right
-        - if user_signed_in?
-          %ul.list-name
-            = current_user.name
-            %li.list-logout
-              = link_to logout_path, method: :delete, class: "black" do
-                = icon("fas", "sign-out-alt")
-                ログアウト
+    %header
+      .notifications
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: key)
+      .header
+        .header__left
+          = link_to "TasQlock", today_schedules_path, class: "blue"
+        .header__middle
+          #date
+        .header__right
+          - if user_signed_in?
+            %ul.list-name
+              = current_user.name
+              %li.list-logout
+                = link_to logout_path, method: :delete, class: "black" do
+                  = icon("fas", "sign-out-alt")
+                  ログアウト
     = yield

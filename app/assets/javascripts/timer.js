@@ -151,7 +151,7 @@ $(function(){
     $('#timer').html(hour_number + ':' +  min_number + ':' + sec_number);
   }
 
-  // スタートと休憩のクリックイベントをデフォルトで呼び出し状態とする
+  // スタートとリセットと休憩のクリックイベントをデフォルトで呼び出す
   start();
   reset();
   rest();

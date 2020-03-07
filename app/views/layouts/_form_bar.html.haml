@@ -8,14 +8,20 @@
     = form_with(model: @schedule, local: true) do |f|
       - if controller.controller_name == "schedules" && controller.action_name == "new"
         .new-date
-          %p ▼作業日
+          %span ▼作業日
+          %span{style: "color:#FF0000; font-size: 12px"} ※必須
+          %br
           = f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: "form-control__middle"
       - elsif controller.controller_name == "schedules" && controller.action_name == "edit"
         .new-date
-          %p ▼作業日
+          %span ▼作業日
+          %span{style: "color:#FF0000; font-size: 12px"} ※必須
+          %br
           = f.date_field :date, value: @schedule.date, class: "form-control__middle"
       .new-time__title
-        %p ▼作業予定時刻
+        %span ▼作業予定時刻(hh:mm)
+        %span{style: "color:#FF0000; font-size: 12px"} ※必須
+        %br
         .new-time
           - if controller.controller_name == "schedules" && controller.action_name == "new"
             .new-starttime
@@ -30,13 +36,17 @@
             .new-finishtime
               = f.text_field :finishtime, value: @schedule.finishtime.strftime("%H:%M"), class: 'form-control__short', placeholder: "例)10:00"
       .new-tag.lineheight10
-        %p ▼カテゴリー
+        %span ▼カテゴリー
+        %span{style: "color:#FF0000; font-size: 12px"} ※必須
+        %br
         = f.collection_radio_buttons(:tag_id, Tag.all, :id, :name) do |t|
           = t.label do
             = t.radio_button
             = t.text
       .new-title.lineheight10
-        %p ▼タイトル
+        %span ▼タイトル
+        %span{style: "color:#FF0000; font-size: 12px"} ※必須
+        %br
         = f.text_field :title, class: 'form-control', placeholder: "タイトルを入力"
       .new-schedule.lineheight10
         %p ▼スケジュール内容
