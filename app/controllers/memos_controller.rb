@@ -11,10 +11,10 @@ class MemosController < ApplicationController
     @memo = Memo.new(memo_params)
     @memo.date = Time.now.to_s.slice(0..9)
     @memo.save
-      # if memo.save
-      #   respond to html
-      #   respond to json
-    redirect_to today_schedules_path
+    respond_to do |format|
+      format.html {redirect_to today_schedules_path}
+      format.json
+    end 
   end
 
   def destroy

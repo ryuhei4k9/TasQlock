@@ -52,6 +52,9 @@ class SchedulesController < ApplicationController
   end
 
   def today
+    date = Time.now.to_s.slice(0..9)
+    @month = date.slice(5..6)
+    @day = date.slice(8..9)
     @schedules = Schedule.where("date >= ?", Time.zone.now.beginning_of_day).where(user_id: current_user.id).order(starttime: "asc")
     @memo = Memo.new
     @memos = Memo.where("date >= ?", Time.zone.now.beginning_of_day).where(user_id: current_user.id).order(created_at: "asc")
@@ -66,9 +69,12 @@ class SchedulesController < ApplicationController
   end
 
   def done
-    schedule = Schedule.find(params[:id])
-    schedule.update(done: 1)
-    redirect_to today_schedules_path
+    @schedule = Schedule.find(params[:id])
+    @schedule.update(done: 1)
+    respond_to do |format|
+      format.html {redirect_to today_schedules_path}
+      format.json
+    end 
     flash[:notice] = "スケジュールが完了しました"
   end
 

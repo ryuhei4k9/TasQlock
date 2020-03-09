@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  # トップページ
   root to: 'homes#index'
-  resources :homes , only: [:index] # トップページ用のルーティング
-  resources :schedules do # スケジュールページ用のルーティング
+  # トップページ用のルーティング
+  resources :homes , only: [:index] 
+  # スケジュールページ用のルーティング
+  resources :schedules , only: [:new, :create, :edit, :update, :destroy] do
     collection do
       get 'today'
       get 'calendar'
@@ -12,8 +15,11 @@ Rails.application.routes.draw do
   resources :memos, only: [:new, :create, :destroy]
   post "/memos/create", to: "memos#create"
 
-  resources :users, only: [:new, :create] # ユーザ新規登録用のルーティング
-  post   '/login' , to: 'sessions#create' #ログイン処理用のルーティング
-  delete '/logout', to: 'sessions#destroy'  #ログアウト処理用のルーティング
+  #ユーザ新規登録用のルーティング
+  resources :users, only: [:new, :create]
+  #ログイン処理用のルーティング
+  post   '/login' , to: 'sessions#create'
+  #ログアウト処理用のルーティング
+  delete '/logout', to: 'sessions#destroy'
 
 end

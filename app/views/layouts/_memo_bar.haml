@@ -11,8 +11,8 @@
           .memo-description
             = memo.memo
   .memo-bottom
-    = form_with(model: @memo, action:"/memos/new", class: "memo-flex", local: true) do |f|
+    = form_with(model: @memo, action:"/memos/new", class: "memo-flex", id: "new_memo", local: true) do |f|
       .memo-form
-        = f.text_field :memo, class: "form-control-memo"
+        = f.text_field :memo, class: "form-control-memo", placeholder:"メモを入力", autocomplete:'off'
       .memo-submit
         = f.submit "送信", class: "btn-memo"

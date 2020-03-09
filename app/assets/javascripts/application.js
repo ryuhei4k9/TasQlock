@@ -18,6 +18,11 @@
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 //= require_tree .
+
+$(function(){
+  setTimeout("$('.time-limit').fadeOut('slow')", 1000) 
+})
+
 $(function(){
   function eventCalendar() {
     $('#calendar').fullCalendar({

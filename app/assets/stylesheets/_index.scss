@@ -5,6 +5,7 @@
 }
 
 .index-new {
+  position: relative;
   height: 30px;
   width: 240px;
   line-height: 30px;
@@ -13,9 +14,22 @@
   color: #FFF;
   padding: 3px 6px;
   background-color:#005FFF;
-  border-radius: 20px;
+  border-radius: 15px;
+  border-bottom: 3px solid #888;
   text-align: center;
   margin: 20px auto;
+  cursor: pointer;
+}
+
+.index-new:focus {
+  outline: none;
+}
+
+
+.index-new:active {
+  outline:0;
+  top: 2px;
+  border-bottom: 0px;
 }
 
 .index-yesterday {

@@ -108,14 +108,14 @@
 .right-schedule {
   margin: 10px;
   height: 100%;
-  background-color: #FFF;
+  background-color: #EEE;
 }
 
 .right-schedule-done {
   position: relative;
   margin: 10px;
   height: 100%;
-  background-color:#FFF;
+  background-color:#EEE;
 }
 
 .right-schedule-done::after {
@@ -136,6 +136,8 @@
 .right-schedule__top {
   display: flex;
   font-size: 16px;
+  background-color: #BBB;
+  color: #FFF;
 }
 
 .right-schetag {
@@ -147,6 +149,7 @@
     line-height: 24px;
     font-size: 12px;
     color: #FFF;
+    z-index: 1;
   }
   &__2 {
     background-color: blue;
@@ -156,6 +159,7 @@
     line-height: 24px;
     font-size: 12px;
     color: #FFF;
+    z-index: 1;
   }
   &__3 {
     background-color: green;
@@ -165,6 +169,7 @@
     line-height: 24px;
     font-size: 12px;
     color: #FFF;
+    z-index: 1;
   }
   &__4 {
     background-color: #FF9900;
@@ -174,6 +179,7 @@
     line-height: 24px;
     font-size: 12px;
     color: #FFF;
+    z-index: 1;
   }
   &__5 {
     background-color: aqua;
@@ -183,6 +189,7 @@
     line-height: 24px;
     font-size: 12px;
     color: #FFF;
+    z-index: 1;
   }
   &__6 {
     background-color: purple;
@@ -192,6 +199,7 @@
     line-height: 24px;
     font-size: 12px;
     color: #FFF;
+    z-index: 1;
   }
 }
 

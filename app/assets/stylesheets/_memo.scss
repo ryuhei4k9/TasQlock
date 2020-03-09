@@ -60,6 +60,12 @@
 
 .form-control-memo {
   width: calc(100% + 40px);
+  padding-left: 3px;
+}
+
+.form-control-memo::placeholder {
+  font-size: 14px;
+  margin:0 auto;
 }
 
 .btn-memo {

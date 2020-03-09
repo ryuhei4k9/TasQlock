@@ -1,5 +1,13 @@
 .schedules-wrapper
-  #today
+  #today-date
+    #today1
+      = @month
+    #today2
+      月
+    #today3
+      = @day
+    #today4
+      日のスケジュール確認
   .schedule-contents
     - if @schedules.present?
       - @schedules.each do |schedule|
