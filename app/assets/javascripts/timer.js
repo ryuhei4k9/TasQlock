@@ -17,7 +17,7 @@ $(function(){
                             <i class="fas fa-pause"></i>
                           </button>`)
       // リセットボタンの無効化
-      $("#reset").prop("disabled", true)
+      $("#reset,#rest").prop("disabled", true)
       // 一時停止ボタンのクリックイベントの呼び出し
       pause();
     });
@@ -36,7 +36,7 @@ $(function(){
                             <i class="fas fa-play"></i>
                           </button>`)
       // リセットボタンの有効化
-      $("#reset").prop("disabled", false)
+      $("#reset,#rest").prop("disabled", false)
       // スタートボタンのクリックイベントの呼び出し
       start();
     });
@@ -106,7 +106,7 @@ $(function(){
       $("#reset").before(`<button name="button" type="button" class="button__stop button-time" id="stop">
                             <i class="fas fa-stop"></i>
                           </button>`);
-      $('#rest').prop('disabled', 'true');
+      $('#reset,#rest').prop('disabled', 'true');
       stop();
     })
   }
@@ -118,7 +118,7 @@ $(function(){
       if(min == 0 && hour == 0 ){
         // 時も分も秒も0の時
         clearInterval(timer)
-        console.log("終わり！閉廷！")
+        $("#stop").remove();
         $('#timer').html("00:00:00");
         $(".audio").prepend(`<audio autoplay="autoplay" src="/assets/alert-69440d0564764ecd4633a475dbbb750194bf7bf69a575893935855f1e2886b5d.mp3" id="audio_add"></audio>`)
         $("#reset").before(`<button name="button" type="button" class="button__stop button-time" id="stop">

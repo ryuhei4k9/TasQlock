@@ -68,6 +68,13 @@ $(function(){
     caledate = $('.cale_date').val();
     $(`.fc-day[data-date=${caledate}]`).css('background','rgb(255, 172, 230)')
   };
+
+  function calendarImage(){
+    // カレンダーの中でイベントが登録されている日にイメージを追加する。
+    if(window.location.href.match(/\/schedules/)){
+
+    }
+  }
   
   // カレンダーをクリックした時に背景色のcssを付与する関数を実行
   if(window.location.href.match(/\/schedules\/calendar/)){

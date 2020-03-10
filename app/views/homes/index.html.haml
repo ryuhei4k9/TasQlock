@@ -5,11 +5,12 @@
       .top__left--title
         make a better
         %br
-        environment and time
+        environment
+        %br
+        and time
       .top__left--description
-      本サイトは1日のスケジュールをタイマーと共に管理し、学習や業務の効率化を図る事を趣旨としたサイトです。
-      %br
-      ユーザ登録を行うことでスケジューリング機能をご利用いただけます。
+      本アプリケーションは1日のスケジュールをタイマーと共に管理し、学習や業務の効率化を図る事を趣旨としたアプリです。
+      ユーザ登録を行うことでスケジューリング機能、タイマー機能をご利用いただけます。
     .top__right
       -# ログイン画面
       .login
@@ -38,10 +39,11 @@
             -# ログイン
             .form-submit
               = f.submit "Login", class: "btn-submit"
-
-        .login__sns
-          = image_tag "/images/btn_google_signin_light_focus_web.png",{class: "google"}
-          = image_tag "/images/btn_facebook_signin.png", {class: "facebook"}
+        
+        -# SNS認証未実装の為非表示
+        -# .login__sns
+        -#   = image_tag "/images/btn_google_signin_light_focus_web.png",{class: "google"}
+        -#   = image_tag "/images/btn_facebook_signin.png", {class: "facebook"}
         .today
           .today-main
             今日から頑張りたいあなたは
@@ -81,11 +83,46 @@
             .form-submit
               = f.submit "Signup", class: "btn-submit"
 
-        .signup__sns
-          = image_tag "/images/btn_google_signin_light_focus_web.png",{class: "google"}
-          = image_tag "/images/btn_facebook_signup.png", {class: "facebook"}
+        -# SNS認証未実装の為非表示
+        -# .signup__sns
+        -#   = image_tag "/images/btn_google_signin_light_focus_web.png",{class: "google"}
+        -#   = image_tag "/images/btn_facebook_signup.png", {class: "facebook"}
+
         .already
           .already-main
             登録済みで頑張っているあなたは
           .already-sub
             こちら
+.introduction-about
+  .about-top.blue
+    = icon("fas", "question-circle")
+    about
+  .about-description
+    1日のスケジュールを分単位で管理、可視化させる事でタスクの進捗が把握し易くなり、作業効率化に繋がります。
+    %br
+    本アプリケーションはタスクを登録する際に目標時間を設定します。タスク一覧で表示し、終了したタスクは完了ボタンにてクローズします。
+    %br
+    また、カレンダーより過去のタスクも確認できますので、当日の作業をスムーズに開始する事が可能です。
+  .about-image
+    = image_tag "/images/mainpage.png", class:"about-image"
+
+-# Webタイマーは紹介の必要性について検討中な為、コメントアウトにて保留
+-# .introduction-timer
+-#   .timer-top.blue
+-#     = icon("fas", "stopwatch")
+-#     Webタイマー
+-#   .timer-content
+-#     .timer-image
+-#       = image_tag "/images/timerpage.png", class:"timer-image"
+-#     .timer-description
+-#       25分実行＋5分休憩の繰り返しで集中力をキープする「ポモドーロ・テクニック」というものがあります。
+-#       %br
+-#       人間の集中力の限界は90分と言われており、年齢を進むにつれてこの時間は短くなります。
+-#       %br
+-#       本アプリケーションでは、25分タイマーと5分タイマーを用意しておりますので、アラームが鳴るまで作業に集中、
+-#       %br
+-#       どこまで作業を進めたかのメモを取り5分間の休憩、そしてまた25分と繰り返し、集中力の持続を行っていきます。
+.footer
+  .footer-left
+  .footer-right
+    product by 

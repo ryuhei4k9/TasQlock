@@ -48,7 +48,7 @@
   padding-left: 3px;
 }
 
-.btn-post {
+.btn-post, .btn-edit {
   position: relative;
   height: 30px;
   width: 140px;
@@ -65,11 +65,11 @@
   cursor: pointer;
 }
 
-.btn-post:focus, .btn-delete:focus {
+.btn-post:focus, .btn-delete:focus, .btn-edit:focus {
   outline: none;
 }
 
-.btn-post:active {
+.btn-post:active, .btn-edit:active {
   outline:0;
   top: 2px;
   border-bottom: 0px;

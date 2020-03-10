@@ -4,7 +4,7 @@ class MemosController < ApplicationController
   end
 
   def new
-    @memo = Memo.new(memo_params)
+    @memo = Memo.new
   end
 
   def create
@@ -20,7 +20,10 @@ class MemosController < ApplicationController
   def destroy
     @memo = Memo.find(params[:id])
     @memo.destroy
-    redirect_to today_schedules_path
+    respond_to do |format|
+      # format.html {redirect_to today_schedules_path}
+      format.json
+    end
   end
 
   private

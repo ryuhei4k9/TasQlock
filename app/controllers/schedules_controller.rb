@@ -11,11 +11,14 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    schedule = Schedule.new(schedule_params)
-      if schedule.valid?
-        schedule.save
+    @schedule = Schedule.new(schedule_params)
+      if @schedule.valid?
+        @schedule.save
         flash[:notice] = "スケジュールを登録しました"
-        redirect_to new_schedule_path
+        respond_to do |format|
+          format.html {redirect_to new_schedule_path}
+          format.json
+        end 
       else
         flash[:alert] = "必須項目を入力して下さい"
         redirect_to new_schedule_path

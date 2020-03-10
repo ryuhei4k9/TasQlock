@@ -6,7 +6,7 @@ $(function(){
                       ${memo.created_at}
                     </div>
                     <div class="memo-cross">
-                      <a href="/memos/${memo.id}" data-method="delete" class="black">☓</a>
+                      <a href="/memos/${memo.id}" data-method="delete" class="black cross" data-remote="true" rel=”nofollow”>☓</a>
                     </div>
                   </div>
                   <div class="memo-description">
@@ -15,27 +15,59 @@ $(function(){
                 </div>`
     return html;
   }
-  $('#new_memo').on('submit', function(e){
-    e.preventDefault();
-    let formData = new FormData(this);
-    let url = $(this).attr('action')
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false,
-      success: function(data){
-        console.log("成功なり")
-        let html = buildHTML(data);
-        $('.memo-contents').append(html);
-        $('.btn-memo').prop('disabled', false);
-        $('#memo_memo').val("");
-      },
-      false: function(){
-      console.log("失敗しました")
-      }
+  // メモの送信を非同期させる記述
+  function memosubmit(){
+    $('#new_memo').off('submit');
+    $('#new_memo').on('submit',function(e){
+      e.preventDefault();
+      let formData = new FormData(this);
+      let url = $(this).attr('action')
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        success: function(data){
+          let html = buildHTML(data);
+          $('.memo-contents').append(html);
+          memodelete();
+          $('.btn-memo').prop('disabled', false);
+          $('#memo_memo').val("");
+          $(".memo-contents").animate({
+            scrollTop: $(".memo-contents")[0].scrollHeight
+          });
+        },
+        false: function(){
+        console.log("失敗しました")
+        }
+      });
+    });
+  };
+  // メモの削除を非同期させる記述
+  function memodelete(){
+    $('a.cross').off('click');
+    $('a.cross').on('click', function(e){
+      e.preventDefault();
+      let url = $(this).attr('href')
+      let element = $(this).parents('.memo-content')
+      $.ajax({
+        url: url,
+        type: "DELETE",
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        success: function(){
+          element.remove();
+        },
+        false: function(){
+        console.log("失敗しました")
+        }
+      })
     })
-  })
+  }
+  // メモの投稿、削除をデフォルトで呼び出し状態とする
+  memosubmit();
+  memodelete();
 })

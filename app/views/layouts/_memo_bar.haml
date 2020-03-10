@@ -7,7 +7,7 @@
             .memo-title
               = memo.created_at.strftime("%Y年%m月%d日 %H:%M:%S")
             .memo-cross
-              = link_to "☓", memo_path(memo.id), method: :delete, class: "black"
+              = link_to "☓", memo_path(memo.id), method: :delete, class: "black cross", remote: true
           .memo-description
             = memo.memo
   .memo-bottom

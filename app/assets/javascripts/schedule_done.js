@@ -1,3 +1,5 @@
+// スケジュールの完了を非同期化させる記述。保留
+
 // $(function(){
 //   $('.btn-done').on("click",function(e){
 //     e.preventDefault()

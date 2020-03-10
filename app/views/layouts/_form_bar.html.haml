@@ -5,7 +5,7 @@
     - elsif controller.controller_name == "schedules" && controller.action_name == "edit"
       スケジュール編集
   .new-content
-    = form_with(model: @schedule, local: true) do |f|
+    = form_with(model: @schedule, local: true, id: "new_schedule") do |f|
       - if controller.controller_name == "schedules" && controller.action_name == "new"
         .new-date
           %span ▼作業日
@@ -56,7 +56,7 @@
           = f.submit '登録', class: 'btn-post'
       - elsif controller.controller_name == "schedules" && controller.action_name == "edit"
         .new-submit
-          = f.submit '編集', class: 'btn-post'
+          = f.submit '編集', class: 'btn-edit'
           = link_to("/schedules/#{@schedule.id}", method: :delete) do
             .btn-delete.confirm
               削除
