@@ -1,5 +1,6 @@
 # TasQlock
---ここに画像を載せる--
+<img width="1440" alt="TasQlock_TopPage" src="https://user-images.githubusercontent.com/47615811/76326367-debea100-632b-11ea-9058-3bedc008888a.png">
+
 
 # 説明
 本アプリケーションはタスク管理の効率化を趣旨とし、下記2点を主な機能として実装しております。
