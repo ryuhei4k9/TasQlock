@@ -1,24 +1,37 @@
-# README
+# TasQlock
+--ここに画像を載せる--
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 説明
+本アプリケーションはタスク管理の効率化を趣旨とし、下記2点を主な機能として実装しております。
 
-Things you may want to cover:
+### ■スケジュール管理機能
+タスクを日時指定で登録、表示を行い作業内容を可視化します。
+また、終了したタスクにつきましても各スケジュールに完了ボタンを設置しておりますので、クリックすることで暗転化し、残タスクを見やすくしております。
 
-* Ruby version
+### ■タイマー機能
+集中力が持続しやすいと言われている、25分作業、5分休憩を繰り返す「ポモドーロ・テクニック」を参考にし、
+25分タイマーと5分タイマーの2機能を搭載したタイマーを実装しております。
 
-* System dependencies
+# 開発環境
+- HTML
+- scss
+- javascript
+- jQuery
+- ruby 2.5.1
+- Ruby on Rails 5.2.4.1
+- VSCode（Visual Studio Code）
 
-* Configuration
+# Setup
+セットアップ方法を書く。用意するハードウェアとソフトウェアをセットアップするためのコマンドを記載する
 
-* Database creation
+# Usage
+使い方。なるべく具体的に書く。サンプルも書く
 
-* Database initialization
+# License
+This software is released under the MIT License, see LICENSE.
 
-* How to run the test suite
+# Authors
+作者を明示する。特に、他者が作成したコードを利用する場合は、そのコードのライセンスに従った上で、リポジトリのそれぞれのコードのオリジナルの作者が誰か分かるように明示する（私はそれが良いと思い自主的にしています）。
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# References
+参考にした情報源（サイト・論文）などの情報、リンク
