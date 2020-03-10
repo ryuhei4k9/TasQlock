@@ -21,12 +21,12 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import './memo.scss';
-@import './wrapper';
+@import './wrapper.scss';
 @import './index.scss';
 @import './new.scss';
-@import './calendar';
-@import './color';
-@import './timer';
+@import './calendar.scss';
+@import './color.scss';
+@import './timer.scss';
 
 // フラッシュメッセージ
 .notifications {
