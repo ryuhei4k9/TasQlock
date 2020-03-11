@@ -77,6 +77,7 @@ class SchedulesController < ApplicationController
     # Rubyは「こういうメソッドでこれ取れたらな」ってのがあるので、こういうのはdate.monthとかdate.dayとかで持ってこれます
     @month = date.slice(5..6)
     @day = date.slice(8..9)
+    # dateのwhereが「いつから」はあるけど「いつまで」がないので、未来のタスクも出てくる
     @schedules = Schedule.where("date >= ?", Time.zone.now.beginning_of_day).where(user_id: current_user.id).order(starttime: "asc")
 
     # Memo、現時点は使われてない？（導線とかいろいろパット見でみつからなかった）
